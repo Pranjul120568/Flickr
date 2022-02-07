@@ -5,7 +5,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pdinc.flickr.R
@@ -15,18 +14,18 @@ class PhotoAdapter: RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
     private var result:List<PhotoItem?>? =ArrayList()
     inner class PhotoViewHolder(itemView : View):RecyclerView.ViewHolder(itemView) {
      fun bind(item:PhotoItem)=with(itemView){
-         val imageV=itemView.findViewById<ImageView>(R.id.photoimgV)
-         Log.d("Here is the url", item.urlS!!)
+//         Log.d("Here is the url", item.urlS!!)
          Glide.with(context).load(item.urlS).into(itemView.findViewById(R.id.photoimgV))
      }
     }
+    @SuppressLint("NotifyDataSetChanged")
     fun swapData(result:List<PhotoItem?>?){
         if (result != null) {
             this.result= result
         }
-        notifyItemRangeInserted(0,result!!.size)
-        notifyItemRangeChanged(0,result.size)
-//        notifyDataSetChanged()
+//        notifyItemRangeInserted(0,result!!.size)
+//        notifyItemRangeChanged(0,result.size)
+        notifyDataSetChanged()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
         return PhotoViewHolder(
