@@ -7,7 +7,7 @@ import com.pdinc.flickr.network.PhotoDataSourceImpl
 import kotlinx.coroutines.runBlocking
 
 class PhotoViewModel : ViewModel() {
-    private var PhotoData= mutableListOf<PhotoItem?>()
+    var PhotoData= mutableListOf<PhotoItem?>()
     private val photoSource = PhotoDataSourceImpl()
 
     init {

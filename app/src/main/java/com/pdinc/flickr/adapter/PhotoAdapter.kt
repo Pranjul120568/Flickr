@@ -11,7 +11,7 @@ import com.pdinc.flickr.R
 import com.pdinc.flickr.model.PhotoItem
 
 class PhotoAdapter: RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
-    private var result:List<PhotoItem?>? =ArrayList()
+    private var result:MutableList<PhotoItem?>? =ArrayList()
     inner class PhotoViewHolder(itemView : View):RecyclerView.ViewHolder(itemView) {
      fun bind(item:PhotoItem)=with(itemView){
 //         Log.d("Here is the url", item.urlS!!)
@@ -19,7 +19,7 @@ class PhotoAdapter: RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
      }
     }
     @SuppressLint("NotifyDataSetChanged")
-    fun swapData(result:List<PhotoItem?>?){
+    fun swapData(result:MutableList<PhotoItem?>?){
         if (result != null) {
             this.result= result
         }
