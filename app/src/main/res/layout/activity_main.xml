@@ -10,8 +10,8 @@
         android:id="@+id/imagesRv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/list_item"
-        android:layout_above="@+id/bottomNavView" />
+        android:layout_above="@+id/bottomNavView"
+        tools:listitem="@layout/list_item" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavView"

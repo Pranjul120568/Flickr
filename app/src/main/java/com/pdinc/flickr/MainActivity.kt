@@ -29,4 +29,5 @@ class MainActivity : AppCompatActivity() {
                 GridLayoutManager(this@MainActivity, 2, GridLayoutManager.VERTICAL, false)
         }
     }
+
 }
