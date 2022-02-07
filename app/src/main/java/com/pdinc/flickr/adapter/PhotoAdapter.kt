@@ -1,10 +1,10 @@
 package com.pdinc.flickr.adapter
 
 import android.annotation.SuppressLint
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pdinc.flickr.R
@@ -13,8 +13,9 @@ import com.pdinc.flickr.model.PhotoItem
 class PhotoAdapter: RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
     private var result:MutableList<PhotoItem?>? =ArrayList()
     inner class PhotoViewHolder(itemView : View):RecyclerView.ViewHolder(itemView) {
+        var imageData=itemView.findViewById<TextView>(R.id.imginftv)
      fun bind(item:PhotoItem)=with(itemView){
-//         Log.d("Here is the url", item.urlS!!)
+         imageData.text=item.title
          Glide.with(context).load(item.urlS).into(itemView.findViewById(R.id.photoimgV))
      }
     }
@@ -23,8 +24,6 @@ class PhotoAdapter: RecyclerView.Adapter<PhotoAdapter.PhotoViewHolder>() {
         if (result != null) {
             this.result= result
         }
-//        notifyItemRangeInserted(0,result!!.size)
-//        notifyItemRangeChanged(0,result.size)
         notifyDataSetChanged()
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PhotoViewHolder {
